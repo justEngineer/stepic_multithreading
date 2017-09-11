@@ -11,11 +11,43 @@ int main(int argc, char *argv[])
 */
 #include <iostream>
 #include <cstdlib>
+#include <map>
+#include <vector>
 
 //using namespace std;
 
 int main(int argc, char *argv[])
 {
+
+    std::map<std::string, std::vector<int>> map;
+    std::vector<int> v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    map["one"] = v;
+
+    std::vector<int> v2;
+    v2.push_back(11);
+    v2.push_back(12);
+    v2.push_back(13);
+    map["two"] = v2;
+
+    for(const auto &kvp: map)
+    {
+       std::cout << kvp.first << std::endl;
+       for(auto &v: kvp.second)
+          std::cout << v << std::endl;
+    }
+
+    int arr[] = {1,2,3,4,5};
+
+    for(int &e: arr) {
+       e *= e;
+       std::cout << e << std::endl;
+    }
+//    system("PAUSE"); // <---
+    return 0;
+/*
     std::string temp;
     map<int,int> m;   //здесь храним пары степень-коэффициент
         regex r("([\+-]?)([\d]]*)\\*?(x?)\\^?([\d]*)");
@@ -38,4 +70,5 @@ int main(int argc, char *argv[])
     std::cout << "Hello World!" + temp << std::endl;
     system("PAUSE"); // <---
     return 0;
+*/
 }
